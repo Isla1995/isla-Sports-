@@ -3,7 +3,7 @@
 Este paquete es el código de una web estática para Isla Sports, preparada para usar Supabase Auth y las tablas existentes `profiles` y `matches`.
 
 ## Antes de publicar
-1. En `config.js`, sustituye `PEGA_AQUI_TU_SUPABASE_PROJECT_URL` y `PEGA_AQUI_TU_SUPABASE_PUBLISHABLE_KEY` por los valores públicos del proyecto Supabase.
+1. En `config.js`, sustituye "https://bwubffxqtwaewlytsjtb.supabase.co";`"sb_publishable_nriEhGxe6MAPzsmfbtZc5A_k-tw5SDQ"` por los valores públicos del proyecto Supabase.
 2. No añadas contraseñas de base de datos ni la clave `service_role` al navegador.
 3. Publica estos archivos en un hosting estático HTTPS (por ejemplo GitHub Pages o Netlify).
 4. En Supabase, configura las URL permitidas de Auth para incluir la URL final de la web.
