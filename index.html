@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080b0a">
+  <title>Isla Sports</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header><div class="brand"><span class="mark">IS</span><div><h1>ISLA SPORTS</h1><p>Tu zona de pronósticos</p></div></div><button id="logoutBtn" class="secondary hidden">Salir</button></header>
+  <main>
+    <section id="setupWarning" class="panel warning hidden">
+      <h2>Falta conectar Supabase</h2>
+      <p>Abre <code>config.js</code> y pega la URL del proyecto y la clave pública (publishable/anon). Nunca pongas aquí la contraseña de la base de datos ni la clave <code>service_role</code>.</p>
+    </section>
+    <section id="authPanel" class="panel auth">
+      <p class="eyebrow">ACCESO PRIVADO</p><h2>Entra a Isla Sports</h2>
+      <div class="tabs"><button id="loginTab" class="tab active">Iniciar sesión</button><button id="signupTab" class="tab">Crear cuenta</button></div>
+      <form id="authForm">
+        <label>Correo electrónico<input id="email" type="email" autocomplete="email" required placeholder="tu@email.com"></label>
+        <label>Contraseña<input id="password" type="password" autocomplete="current-password" minlength="6" required placeholder="Mínimo 6 caracteres"></label>
+        <label id="usernameWrap" class="hidden">Nombre de usuario<input id="username" maxlength="24" placeholder="Tu nombre"></label>
+        <button id="authSubmit" type="submit" class="primary">Entrar</button>
+      </form>
+      <p id="authMessage" class="message" aria-live="polite"></p>
+      <p class="small">Puntos ficticios para entretenimiento. No se aceptan apuestas ni dinero real.</p>
+    </section>
+    <section id="appPanel" class="hidden">
+      <div class="welcome"><div><p class="eyebrow">BIENVENIDO</p><h2 id="welcomeName">Jugador</h2></div><div class="points"><span>PUNTOS</span><strong id="pointsValue">—</strong></div></div>
+      <div class="sectionHead"><h2>Partidos</h2><button id="refreshBtn" class="secondary">Actualizar</button></div>
+      <p id="matchesMessage" class="message"></p>
+      <div id="matches" class="matches"></div>
+      <section id="adminPanel" class="panel hidden">
+        <p class="eyebrow">ADMINISTRACIÓN</p><h2>Agregar partido</h2>
+        <form id="matchForm" class="matchForm">
+          <label>Deporte<input id="sport" required placeholder="Béisbol, fútbol..."></label>
+          <div class="two"><label>Equipo local<input id="home" required></label><label>Equipo visitante<input id="away" required></label></div>
+          <label>Fecha y hora de inicio<input id="startsAt" type="datetime-local" required></label>
+          <div class="three"><label>Cuota local<input id="oddsHome" type="number" min="1.01" step="0.01" required value="1.90"></label><label>Empate (opcional)<input id="oddsDraw" type="number" min="1.01" step="0.01" placeholder="—"></label><label>Cuota visitante<input id="oddsAway" type="number" min="1.01" step="0.01" required value="1.90"></label></div>
+          <button class="primary" type="submit">Guardar partido</button>
+        </form><p id="adminMessage" class="message"></p>
+      </section>
+    </section>
+  </main>
+  <footer>ISLA SPORTS · Solo puntos ficticios · Sin dinero real</footer>
+</body>
+</html>
